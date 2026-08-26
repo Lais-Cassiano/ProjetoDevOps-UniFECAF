@@ -1,5 +1,5 @@
 {
-  "name": "servico-estoque",
+  "name": "loja-veloz-estoque",
   "version": "1.0.0",
   "description": "Microsserviço de estoque da Loja Veloz",
   "main": "index.js",

@@ -38,5 +38,12 @@ jobs:
         working-directory: ./gateway
         run: npm ci
 
+      - name: Validar código JavaScript
+        run: |
+          node --check pedidos/index.js
+          node --check estoque/index.js
+          node --check pagamentos/index.js
+          node --check gateway/index.js
+
       - name: Build das imagens Docker
         run: docker compose build

@@ -1,5 +1,5 @@
 {
-  "name": "servico-pagamentos",
+  "name": "loja-veloz-pagamentos",
   "version": "1.0.0",
   "description": "Microsserviço de pagamentos da Loja Veloz",
   "main": "index.js",
