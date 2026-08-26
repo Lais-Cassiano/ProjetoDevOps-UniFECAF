@@ -47,3 +47,21 @@ jobs:
 
       - name: Build das imagens Docker
         run: docker compose build
+
+      - name: Login no Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Publicar imagens no Docker Hub
+        run: |
+          docker tag loja-veloz-pedidos:1.0.0 ${{ secrets.DOCKERHUB_USERNAME }}/loja-veloz-pedidos:1.0.0
+          docker tag loja-veloz-estoque:1.0.0 ${{ secrets.DOCKERHUB_USERNAME }}/loja-veloz-estoque:1.0.0
+          docker tag loja-veloz-pagamentos:1.0.0 ${{ secrets.DOCKERHUB_USERNAME }}/loja-veloz-pagamentos:1.0.0
+          docker tag loja-veloz-gateway:1.0.0 ${{ secrets.DOCKERHUB_USERNAME }}/loja-veloz-gateway:1.0.0
+
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/loja-veloz-pedidos:1.0.0
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/loja-veloz-estoque:1.0.0
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/loja-veloz-pagamentos:1.0.0
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/loja-veloz-gateway:1.0.0
