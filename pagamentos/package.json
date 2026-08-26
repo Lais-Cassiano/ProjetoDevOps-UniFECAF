@@ -1,0 +1,13 @@
+{
+  "name": "servico-pagamentos",
+  "version": "1.0.0",
+  "description": "Microsserviço de pagamentos da Loja Veloz",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "type": "commonjs"
+}

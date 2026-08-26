@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: pedidos
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: pedidos
+
+  template:
+    metadata:
+      labels:
+        app: pedidos
+
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsNonRoot: true
+
+      containers:
+        - name: pedidos
+          image: loja-veloz-pedidos:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5353

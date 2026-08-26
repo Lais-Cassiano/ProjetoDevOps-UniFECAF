@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: estoque
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: estoque
+
+  template:
+    metadata:
+      labels:
+        app: estoque
+
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsNonRoot: true
+        
+      containers:
+        - name: estoque
+          image: loja-veloz-estoque:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5354

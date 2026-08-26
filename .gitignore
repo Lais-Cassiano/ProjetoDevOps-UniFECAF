@@ -1,0 +1,19 @@
+# Dependências Node.js
+node_modules/
+
+# Dados locais dos bancos
+postgres-data/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos de ambiente
+.env
+.env.*
+!.env.example
+
+# Sistema operacional / IDE
+.DS_Store
+Thumbs.db
+.vscode/

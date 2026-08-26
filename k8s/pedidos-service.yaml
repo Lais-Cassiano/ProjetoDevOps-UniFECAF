@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: pedidos
+
+spec:
+  selector:
+    app: pedidos
+
+  ports:
+    - port: 5353
+      targetPort: 5353
+
+  type: ClusterIP

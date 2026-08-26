@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: pagamentos
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: pagamentos
+
+  template:
+    metadata:
+      labels:
+        app: pagamentos
+
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsNonRoot: true
+        
+      containers:
+        - name: pagamentos
+          image: loja-veloz-pagamentos:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5355
