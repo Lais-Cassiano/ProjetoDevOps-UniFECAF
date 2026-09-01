@@ -1,6 +1,6 @@
 # Plataforma de microsserviços - Loja Veloz
 
-Este projeto consiste no desenvolvimento de uma plataforma de pedidos em microsserviços para a "Loja Veloz", proposta no contexto da disciplina de DevOps. A solução simula um ambiente real de desenvolvimento e implantação, utilizando Docker e Docker Compose para conteinerização e execução local, Kubernetes para orquestração, GitHub Actions para automação do pipeline CI/CD e Docker Hub para publicação das imagens. O projeto também contempla práticas de segurança, observabilidade, escalabilidade e estratégias de deploy, buscando demonstrar uma arquitetura simples, organizada e alinhada às práticas de DevOps.
+Este projeto consiste no desenvolvimento de uma plataforma de pedidos em microsserviços para a "Loja Veloz", proposta no contexto da disciplina de Cloud DevOps: Orchestrating Containers and Micro Services. A solução simula um ambiente real de desenvolvimento e implantação, utilizando Docker e Docker Compose para conteinerização e execução local, Kubernetes para orquestração, GitHub Actions para automação do pipeline CI/CD e Docker Hub para publicação das imagens. O projeto também contempla práticas de segurança, observabilidade, escalabilidade e estratégias de deploy, buscando demonstrar uma arquitetura simples, organizada e alinhada às práticas de DevOps.
 
 
 
@@ -8,7 +8,7 @@ Este projeto consiste no desenvolvimento de uma plataforma de pedidos em micross
 
 O projeto foi desenvolvido com foco em:
 
-- Desenvolvimento de uma arquitetura baseada em microsserviços para gerenciamento de pedidos.
+- Arquitetura baseada em microsserviços para gerenciamento de pedidos.
 - Conteinerização das aplicações utilizando Docker e Docker Compose.
 - Utilização do banco de dados PostgreSQL e persistência de dados.
 - Orquestração de serviços utilizando Kubernetes.
@@ -74,7 +74,7 @@ cd ProjetoDevOps-UniFECAF
 
 O ambiente local possui os serviços de Pedidos, Estoque, Pagamentos, Gateway e PostgreSQL.
 
-Para iniciar todos os serviços de uma vez, execute:
+Para iniciar todos os serviços de uma vez, abra o terminal e execute:
 
 ```bash
 docker compose up -d
@@ -86,7 +86,7 @@ Para verificar o estado dos containers:
 docker compose ps
 ```
 
-Com os serviços em execução, os endpoints podem ser acessados pelos Endpoints:
+Com os serviços em execução, as páginas podem ser acessados pelos Endpoints:
 
 - http://localhost:5350/pedidos
 - http://localhost:5350/estoque
@@ -100,7 +100,7 @@ docker compose down
 
 ### 3. Executar com Kubernetes
 
-Com o Kubernetes habilitado no Docker Desktop, e inicialização de um cluster, aplique os manifests presentes na pasta `k8s`:
+Com o Kubernetes habilitado no Docker Desktop, e inicialização de um cluster, dentro do terminal aplique os manifests presentes na pasta `k8s`:
 
 ```bash
 kubectl apply -f k8s/
@@ -147,7 +147,7 @@ kubectl delete -f k8s/
 
 ## Arquitetura do Sistema
 
-O sistema foi estruturado com uma arquitetura baseada em microsserviços, separando as principais responsabilidades da plataforma em serviços independentes. Essa organização facilita a manutenção, a escalabilidade e a evolução da aplicação, além de permitir a execução dos serviços de forma isolada por meio de containers.
+O sistema foi estruturado com uma arquitetura baseada em microsserviços, separando as principais responsabilidades da plataforma em serviços independentes. Essa organização facilita a manutenção, a escalabilidade e a evolução da aplicação, além de permitir a execução de cada serviço de forma isolada por meio de containers.
 
 - **pedidos/**
   Contém o microsserviço responsável pelo gerenciamento de pedidos da plataforma.
@@ -165,7 +165,7 @@ O sistema foi estruturado com uma arquitetura baseada em microsserviços, separa
   Cada microsserviço possui seu próprio Dockerfile, utilizado para criar sua imagem e definir o ambiente necessário para execução da aplicação.
 
 - **docker-compose.yml**
-  Arquivo responsável pela definição do ambiente local, configurando os microsserviços, PostgreSQL, redes, volumes, portas e variáveis de ambiente para execução conjunta dos containers.
+  Arquivo responsável pela definição do ambiente local, configurando os microsserviços, banco de dados PostgreSQL, redes, volumes, portas e variáveis de ambiente para execução conjunta dos containers.
 
 - **k8s/**
   Diretório que contém os manifests utilizados para implantação da aplicação no Kubernetes:
@@ -203,6 +203,19 @@ Também foi utilizado o **Metrics Server** para disponibilizar métricas de util
 Como estratégia de atualização, foi adotado o **Rolling Update**, permitindo que novas versões dos serviços sejam implantadas gradualmente, reduzindo a possibilidade de indisponibilidade durante uma atualização.
 
 A solução pode ser expandida futuramente com métricas mais detalhadas, ferramentas de monitoramento centralizado e estratégias adicionais de escalabilidade de acordo com o crescimento da aplicação e da demanda.
+
+
+
+## Links
+
+- **Imagens no Docker Hub:**
+  - https://hub.docker.com/repository/docker/laiscassiano/loja-veloz-gateway
+  - https://hub.docker.com/repository/docker/laiscassiano/loja-veloz-pagamentos
+  - https://hub.docker.com/repository/docker/laiscassiano/loja-veloz-estoque
+  - https://hub.docker.com/repository/docker/laiscassiano/loja-veloz-pedidos
+
+- **Vídeo sobre o projeto no Youtube:**
+  - https://youtu.be/6scdgZ8xw1g
 
 
 
