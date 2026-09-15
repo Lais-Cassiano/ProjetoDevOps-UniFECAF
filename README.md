@@ -214,9 +214,6 @@ A solução pode ser expandida futuramente com métricas mais detalhadas, ferram
   - https://hub.docker.com/repository/docker/laiscassiano/loja-veloz-estoque
   - https://hub.docker.com/repository/docker/laiscassiano/loja-veloz-pedidos
 
-- **Vídeo sobre o projeto no Youtube:**
-  - https://youtu.be/6scdgZ8xw1g
-
 
 
 ## Licença
